@@ -12,5 +12,7 @@ dp = Dispatcher(bot)
 async def send_welcome(message: types.Message):
     await message.reply("Salom! Men video yuklab beruvchi botman. Instagram, TikTok va YouTube’dan video link yuboring.")
 
-if name == 'main':
+if _name_ == 'main':
+    from aiogram import
+executor    
     executor.start_polling(dp, skip_updates=True)
