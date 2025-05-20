@@ -1,18 +1,24 @@
-from aiogram import Bot, Dispatcher, types
-from aiogram.types import Message
-from aiogram.utils import executor
 import os
+from aiogram import Bot, Dispatcher, types
+from aiogram.utils import executor
+from aiogram.types import Message
 
-BOT_TOKEN = os.getenv("BOT_TOKEN")
+# TOKENni Render platformasidagi muhitdan olamiz
+API_TOKEN = os.getenv("BOT_TOKEN")
 
-bot = Bot(token=BOT_TOKEN)
+bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot)
 
-@dp.message_handler(commands=['start'])
-async def send_welcome(message: types.Message):
-    await message.reply("Salom! Men video yuklab beruvchi botman. Instagram, TikTok va YouTube’dan video link yuboring.")
+# /start komandasi
+@dp.message_handler(commands=["start"])
+async def send_welcome(message: Message):
+    await message.answer(
+        "Salom! Men video yuklab beruvchi botman.\n"
+        "Instagram, TikTok va YouTube videolarini yuklay olaman.\n"
+        "Iltimos, havolani yuboring!"
+    )
 
-if _name_ == 'main':
-    from aiogram import
-executor    
+# Hali yuklash funksiyasi qo‘shilmagan – bu bosqichma-bosqich qilinadi
+
+if __name__ == "main":
     executor.start_polling(dp, skip_updates=True)
